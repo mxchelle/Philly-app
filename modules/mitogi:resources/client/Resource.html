@@ -1,0 +1,26 @@
+<template name="Resource">
+	<a href="{{pathFor '/resources/:id' id=_id}}">
+		<article class="resource">
+			
+			<h3>{{name}}</h3>
+
+			{{> EditDeleteButton resource=this}}
+			{{> FavoriteButton _id=_id}}
+
+			{{#if editMode}}
+				{{> quickForm collection="Resources" id=_id type="update" doc=this}}
+			{{else}}
+
+			<p>{{desc}}</p>
+			<p>
+			{{#each attachments}}
+				<span>{{name}}</span>
+			{{/each}}
+			</p>
+			View Details	
+			
+			{{/if}}
+		
+		</article>
+	</a>
+</template>

@@ -1,0 +1,15 @@
+<template name="Resources">
+
+	<section class="resources">
+		{{#if Template.subscriptionsReady}}
+			{{#each resources}}
+				{{> Resource}}
+			{{/each}}
+		{{else}}
+			Loading
+		{{/if}}
+
+		
+	</section>
+
+</template>

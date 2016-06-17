@@ -1,0 +1,98 @@
+<template name="ResourasdasceSingle">
+	<article class="resource">
+		<h3>{{resource.name}}</h3>
+
+		{{#if editMode}}
+			{{> quickForm collection="Resources" id=id type="update" doc=this}}
+		{{else}}
+
+			<p>{{resource.desc}}</p>
+			<p>
+			{{#each attachments}}
+				<span>{{name}}</span>
+			{{/each}}
+			</p>
+
+		{{/if}}
+	</article>
+</template>
+
+
+
+<template name="ResourceSingle">
+    <div class="row">
+       <!-- Blog Content-->
+       <div class="col-lg-9">
+          <div class="panel panel-default">
+             <div class="panel-heading">
+             	<span class="pull-right">
+	                {{> FavoriteButton resourceId=resourceId}}
+					{{> EditDeleteButton resourceId=resourceId}}
+	             </span>
+                <div class="bb">
+                   <h2 class="text-lg">{{resource.name}}</h2>
+                   <p class="clearfix">
+                      <span class="pull-left">
+                         <small class="mr-sm">By <a href="">{{resource.author}}</a>
+                         </small>
+                         <small class="mr-sm">{{resource.createdAt}}</small>
+                         <small>
+                            <strong> {{resource._id}}</strong>
+                            <span>Comments</span>
+                         </small>
+                      </span>
+                   </p>
+                </div>
+             </div>
+             <div class="panel-body text-md">
+                {{resource.desc}}
+                <br>
+                <div class="row">
+                	{{#each attachments}}
+                   <div class="col-xs-3">
+                      <a href="">
+                         {{name}}
+                      </a>
+                   </div>
+                   {{/each}}
+                </div>           
+             </div>
+             
+              <div class="comment-section">
+                  {{> commentsBox id=resourceId}}
+              </div>
+
+          </div>
+        </div>
+       <!-- Blog Sidebar-->
+       <div class="col-lg-3">
+          <!-- Search-->
+          <div class="panel panel-default">
+             <div class="panel-heading">Search</div>
+             <div class="panel-body">
+                <form class="form-horizontal">
+                   <div class="input-group">
+                      <input type="text" placeholder="Search for..." class="form-control">
+                      <span class="input-group-btn">
+                         <button type="button" class="btn btn-default">
+                            <em class="fa fa-search"></em>
+                         </button>
+                      </span>
+                   </div>
+                </form>
+             </div>
+          </div>
+          <!-- Ads-->
+          <div class="panel panel-default">
+             <div class="panel-heading">Ads</div>
+             <div class="panel-body">
+                <a href="">
+                   <img src="img/mockup.png" class="img-responsive img-thumbnail">
+                </a>
+             </div>
+          </div>
+       </div>
+    </div>
+</template>
+
+

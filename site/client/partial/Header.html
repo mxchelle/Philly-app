@@ -1,0 +1,256 @@
+<template name="Header">
+      <header class="topnavbar-wrapper">
+         <!-- START Top Navbar-->
+         <nav role="navigation" class="navbar topnavbar navbar-sticky">
+            <!-- START navbar header-->
+            <div class="navbar-header">
+               <a href="/" class="navbar-brand">
+                  <div class="brand-logo">
+                     <img src="/img/logo.png" alt="App Logo" class="img-responsive">
+                  </div>
+                  <div class="brand-logo-collapsed">
+                     <img src="/img/logo-single.png" alt="App Logo" class="img-responsive">
+                  </div>
+               </a>
+            </div>
+            <!-- END navbar header-->
+            <!-- START Nav wrapper-->
+            <div class="nav-wrapper">
+               <!-- START Left navbar-->
+
+               <ul class="nav navbar-nav web-nav"> 
+                {{> PrimaryNavigation}}
+               </ul>
+
+
+
+
+               <ul class="nav navbar-nav">
+                  <li>
+                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                     <a href="#" data-trigger-resize="" data-toggle-state="aside-collapsed" class="hidden-xs">
+                        <i class="fa fa-navicon"></i>
+                     </a>
+                     <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                     <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                        <i class="fa fa-navicon"></i>
+                     </a>
+                  </li>
+    
+               </ul>
+               <!-- END Left navbar-->
+               <!-- START Right Navbar-->
+               <ul class="nav navbar-nav navbar-right">
+                  <!-- Search icon-->
+                  <li>
+                     <a href="#" data-search-open="">
+                        <i class="fa fa-search"></i>
+                     </a>
+                  </li>
+                 
+                 {{> AlertMenu}}
+                 {{> UserMenu}}
+                 {{> AdminMenu}}
+
+                 <li>
+
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#NewResourceModal">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                   
+                 </li>
+               </ul>
+               <!-- END Right Navbar-->
+            </div>
+            <!-- END Nav wrapper-->
+            <!-- START Search form-->
+            <form role="search" action="search.html" class="navbar-form">
+               <div class="form-group has-feedback">
+                  <input type="text" placeholder="Type and hit enter ..." class="form-control">
+                  <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+               </div>
+               <button type="submit" class="hidden btn btn-default">Submit</button>
+            </form>
+            <!-- END Search form-->
+         </nav>
+         <!-- END Top Navbar-->
+      </header>
+
+      {{> NewResourceModal}}
+</template>
+
+
+
+
+
+<!-- START User menu-->
+<template name="UserMenu">
+   <li class="dropdown dropdown-list">
+      <a href="#" data-toggle="dropdown">
+         <i class="fa fa-user"></i>
+      </a>
+      <!-- START Dropdown menu-->
+      <ul class="dropdown-menu dropbtn">
+         <li>
+            <!-- START list group-->
+            <div class="dropdown-content list-group">
+               <!-- list item-->
+               <a href="/user/setting" class="list-group-item">
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-cog"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Settings</p>
+                     </div>
+                  </div>
+                </a>
+
+                <a href="/favorites" class="list-group-item">
+
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-heart"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Favorites</p>
+                     </div>
+                  </div>
+
+               </a>
+
+               <a href="logout" class="list-group-item">
+                  <small class="btnLogout">Logout</small>
+               </a>
+            </div>
+            <!-- END list group-->
+         </li>
+      </ul>
+      <!-- END Dropdown menu-->
+   </li>
+</template>
+
+
+<template name="NewResourceModal">
+  <!-- Modal -->
+  <div class="modal fade" id="NewResourceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">New Resource</h4>
+        </div>
+        <div class="modal-body">
+          {{> NewResource}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="AdminMenu">
+   <li class="dropdown dropdown-list">
+      <a href="#" data-toggle="dropdown">
+         <i class="fa fa-sliders"></i>
+      </a>
+      <!-- START Dropdown menu-->
+      <ul class="dropdown-menu dropbtn">
+         <li>
+            <!-- START list group-->
+            <div class="dropdown-content list-group">
+               <!-- list item-->
+               <a href="{{pathFor 'themeSettings'}}" class="list-group-item">
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-laptop"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Theme Admin Setting</p>
+                     </div>
+                  </div>
+               </a>
+
+               <a href="/meteoris/user" class="list-group-item">
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-users"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Users Management</p>
+                     </div>
+                  </div>
+               </a>
+
+              <a href="{{pathFor 'roles'}}" class="list-group-item">
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-flag-o"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Role Management</p>
+                     </div>
+                  </div>
+               </a>
+
+
+               <a href="{{pathFor 'backupRestore'}}" class="list-group-item">
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <i class="fa fa-download"></i>
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <p class="m0">Theme Admin Setting</p>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <!-- END list group-->
+         </li>
+      </ul>
+      <!-- END Dropdown menu-->
+   </li>
+   <!-- END Alert menu-->
+</template>
+
+
+<template name="AlertMenu">
+    <!-- START Alert menu-->
+     <li class="dropdown dropdown-list">
+        <a href="#" data-toggle="dropdown">
+           <i class="fa fa-bell-o"></i>
+           <div class="label label-danger">11</div>
+        </a>
+        <!-- START Dropdown menu-->
+        <ul class="dropdown-menu dropbtn">
+           <li>
+              <!-- START list group-->
+              <div class="dropdown-content list-group">
+                 <!-- list item-->
+                 <a href="#" class="list-group-item">
+                    <div class="media-box">
+                       <div class="pull-left">
+                          <em class="fa fa-twitter fa-2x text-info"></em>
+                       </div>
+                       <div class="media-box-body clearfix">
+                          <p class="m0">New followers</p>
+                          <p class="m0 text-muted">
+                             <small>1 new follower</small>
+                          </p>
+                       </div>
+                    </div>
+                 </a>
+                 
+                 <!-- last list item -->
+                 <a href="#" class="list-group-item">
+                    <small>More notifications</small>
+                    <span class="label label-danger pull-right">14</span>
+                 </a>
+              </div>
+              <!-- END list group-->
+           </li>
+        </ul>
+        <!-- END Dropdown menu-->
+     </li>
+     <!-- END Alert menu-->
+</template>

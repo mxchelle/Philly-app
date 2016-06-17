@@ -1,0 +1,15 @@
+<template name="Favorites">
+	<h1>Favorites</h1>
+	{{#if Template.subscriptionsReady}}
+		{{#each resources}}
+			{{> Resource}}
+		{{else}}
+			<h3>No Favorites</h3>
+		{{/each}}
+	{{else}}
+		Loading
+	{{/if}}
+</template>
+
+
+

@@ -1,0 +1,14 @@
+<template name="MainLayout">
+      
+       {{> Header}}
+		 {{> AppNav}}
+         <section class="wrapper">
+            <!-- Page content-->
+            <div class="content-wrapper">
+               {{>Template.dynamic template=content}}
+            </div>
+         </section>
+         <!-- Page footer-->
+         {{> Footer }}
+      
+</template>

@@ -1,0 +1,1 @@
+Template['MainLayout'].replaces('meteoris_themeAdminMain');
