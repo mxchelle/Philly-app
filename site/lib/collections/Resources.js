@@ -42,18 +42,21 @@ ResourceSchema = new SimpleSchema({
 		type: String,
 		label: 'Name',
 	},
-
 	desc : {
-		type: String,
-		label: 'Description',
-		autoform : {
-			type: "textarea"
-		}
+	    type: String,
+	    label: "Description",
+	    autoform: {
+	      afFieldInput: {
+	        type: 'summernote',
+	        class: 'editor', // optional
+	        //settings: // summernote options goes here
+	      }
+	    }
 	},
 	attachments : {
 		 type: [Attachment]
 	},
-	author : {
+	/*author : {
 		type: String,
 		label: 'Author',
 		autoValue: function(){
@@ -72,18 +75,20 @@ ResourceSchema = new SimpleSchema({
 		autoform : {
 			type: "hidden"
 		}
-	},
+	},*/
 	tags: {
-        type: String,
-        autoform:
-            afFieldInput:
-                type: 'tags-toggle'
+        type: [String],
+        autoform: {
+        	type: 'tags',
+            /*afFieldInput: {
+                type: 'tags-toggle',
                 tags: [
                     'music',
                     'book',
-                    # alternatively you can set different label than tag value:
                     { label: 'Movies', value: 'movies' }
                 ]
+            }*/
+        }
     }
 });
 
