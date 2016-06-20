@@ -40,9 +40,9 @@ raix:handlebar-helpers
 
 aldeed:collection2
 aldeed:autoform
+aldeed:delete-button
 yogiben:autoform-tags
 mpowaga:autoform-summernote
-
 
 gwendall:auth-client-callbacks
 

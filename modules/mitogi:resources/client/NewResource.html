@@ -1,5 +1,25 @@
 <template name ="NewResource">
+	
+
+
+
+  {{#autoForm collection="Resources" id="insertResourceForm" type="insert"}}
+    <fieldset>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='desc'}}
+      {{> afArrayField name='attachments'}}
+      {{> afQuickField name='tags'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
+
+</template>
+
+<template name="test">
 	{{> quickForm collection="Resources" id="insertResourceForm" type="insert" class="new-resource-form" meteormethod="myServerMethod"}}
 	{{> meteoris_flash}}
 </template>
 
+<template name="file_upload_bootstrap">
+	{{> upload_bootstrap}}
+</template>

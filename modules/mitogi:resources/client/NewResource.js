@@ -4,8 +4,12 @@ Template.NewResource.events({
 	}
 });
 
+ AutoForm.setDefaultTemplateForType("file", "upload_bootstrap");
+
 
  Template.NewResource.onCreated(function (){
+
+ 
     var hooksObject = {
       after: {
         insert: function(error, result) {

@@ -15,14 +15,18 @@ Attachment = new SimpleSchema({
 	name : {
 		type: String
 	},
-	fileId: {
+	filename: {
 	    type: String,
+	    label: "Filename",
 	    /*autoform: {
 	      afFieldInput: {
 	        type: "file",
 	        collection: "files"
 	      }
 	    }*/
+	    autoform: {
+        	type: 'file'
+        }
 	}
 });
 
