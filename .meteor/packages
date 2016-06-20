@@ -39,10 +39,15 @@ fastclick
 raix:handlebar-helpers
 
 aldeed:collection2
-aldeed:autoform
+
+aldeed:autoform@5.5.1
 aldeed:delete-button
 yogiben:autoform-tags
 mpowaga:autoform-summernote
+
+yogiben:autoform-file
+cfs:standard-packages
+cfs:filesystem
 
 gwendall:auth-client-callbacks
 
@@ -50,8 +55,8 @@ aldeed:template-extension
 
 
 
-tomi:upload-server
-tomi:upload-jquery
+#tomi:upload-server
+#tomi:upload-jquery
 
 yong:meteor-videojs
 

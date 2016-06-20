@@ -1,8 +1,5 @@
 <template name ="NewResource">
 	
-
-
-
   {{#autoForm collection="Resources" id="insertResourceForm" type="insert"}}
     <fieldset>
       {{> afQuickField name='name'}}
@@ -20,6 +17,14 @@
 	{{> meteoris_flash}}
 </template>
 
-<template name="file_upload_bootstrap">
-	{{> upload_bootstrap}}
+<template name="myFilePreview">
+  <a href="{{file.url}}">{{file.original.name}}</a>
+</template>
+
+<template name="mySelectFileBtn">
+  <button type="button" class="js-af-select-file">Upload file</button>
+</template>
+
+<template name="myRemoveFileBtn">
+  <button type="button" class="js-af-remove-file">Remove</button>
 </template>

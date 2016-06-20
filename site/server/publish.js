@@ -23,3 +23,9 @@ Meteor.publish('allUsers', function(id){
 	check(id, String);
 	return Resources.find({_id: Meteor.userId()});
 });*/
+
+
+Meteor.publish("images", function (userId) {
+  //check(userId, String);
+  return Images.find();
+});
